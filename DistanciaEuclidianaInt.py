@@ -39,7 +39,7 @@ def shortestEuclidianDistance (copy_point_list: list , actual_point: Point, othe
         # not(Distância Menor) --> Atualizar 'other_points'
         return shortestEuclidianDistance(copy_point_list, actual_point, tail(other_points), min_distance, point_1, point_2)
 
-#   Némeros Int Aleatórios   
+#   Números Int Aleatórios   
 def generateRandomPoints() -> Point:
     return Point(random.randint(0, 100), random.randint(0, 100))
 
