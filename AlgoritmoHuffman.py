@@ -1,4 +1,6 @@
-nodoNum = 1
+# Aluno: João Marcelo Diniz | Disciplina: PAA
+
+nodoNum = 1 #   Para nomear os Nodos
 class Nodo:
     def __init__(self, name: str, value: int) -> None:
         self.name = name
@@ -46,8 +48,9 @@ def rearrange(list_to_rearrange: list) -> list:
         auxList.pop(-1)
     return auxList
 
+#   Cria a árvore
 def create_Tree(leaves: list):
-    if len(leaves) == 1:
+    if len(leaves) <= 1:
         return leaves
     else:
         global nodoNum
@@ -65,6 +68,7 @@ def create_Tree(leaves: list):
 
         return create_Tree(newList)
 
+#   Identifica as folhas das árvores
 def huffman_codes(root: Nodo) -> dict:
     codes = {}
 
@@ -79,14 +83,22 @@ def huffman_codes(root: Nodo) -> dict:
     traverse(root, '')
     return codes
 
+def cripto(phrase: str, dictionary: dict):
+    listAux = list(phrase)
+    for i in range(len(listAux)):
+        listAux[i] = dictionary[listAux[i]]
+    return listAux#   list(str) -> str
 
 #   EXECUTAR
-lista_Folhas_Organizadas = quicksort_decreasing(create_Leaves("Joao Marcelo"))
+#texto_original = input("Inserir texto: ")
+texto_original = "IFMA CAMPUS CAXIAS"
+lista_Folhas_Organizadas = quicksort_decreasing(create_Leaves(texto_original))
 
 raiz_Arvore = create_Tree(lista_Folhas_Organizadas)[0]
 dicionario = huffman_codes(raiz_Arvore)
-print(dicionario)
-# print(len(raiz_Arvore))
-# for item in lista_Folhas_Organizadas:
-#     print(f"{item.name}: {item.value}")
-# print(f"{raiz_Arvore.name}: {raiz_Arvore.value}")
+texto_Cripto = cripto(texto_original, dicionario)
+
+print(f"Texto: {texto_original}")
+print(f"\nDicionário:\n{dicionario}")
+# print(f'Cripto:\n{"".join(texto_Cripto)}')
+print(f"\nLista Cripto:\n{texto_Cripto}")
