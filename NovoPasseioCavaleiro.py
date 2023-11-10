@@ -20,7 +20,7 @@ def resolver_passeio_cavaleiro(tabuleiro: list, x:int, y:int, movimento: int, mo
                 if not e_valido:
                     tabuleiro[prox_x][prox_y] = -1
                 else:
-                    e_valido = True
+                    return True
     return False
     
     # if not e_valido:
