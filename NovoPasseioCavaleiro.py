@@ -16,12 +16,11 @@ def resolver_passeio_cavaleiro(tabuleiro: list, x:int, y:int, movimento: int, mo
         if validar_movimento(tabuleiro, prox_x, prox_y):
             if tabuleiro[prox_x][prox_y] == -1:
                 tabuleiro[prox_x][prox_y] = movimento
-                if movimento < pow(len(tabuleiro), 2):
-                    e_valido = resolver_passeio_cavaleiro(tabuleiro, prox_x, prox_y, movimento + 1, mov_x, mov_y)
-                    if not e_valido:
-                        tabuleiro[prox_x][prox_y] = -1
-                    else:
-                        e_valido = True
+                e_valido = resolver_passeio_cavaleiro(tabuleiro, prox_x, prox_y, movimento + 1, mov_x, mov_y)
+                if not e_valido:
+                    tabuleiro[prox_x][prox_y] = -1
+                else:
+                    e_valido = True
     return False
     
     # if not e_valido:
