@@ -3,7 +3,7 @@ import math
 import sys
 import random
 
-#   CONSTANTES
+#   CONSTANTES constante
 MAX_FLOAT = sys.float_info.max
 NUM_POINTS = 10
 
